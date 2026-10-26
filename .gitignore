@@ -1,0 +1,9 @@
+# Scratch output from the taste-skill / hallmark design scripts (drawn directions,
+# inspector screenshots). Regenerable — never project source.
+.taste-skill/
+.sloplint/
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
