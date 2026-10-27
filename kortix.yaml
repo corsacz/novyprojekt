@@ -42,3 +42,24 @@ agents:
     secrets: all
     apps: all
     kortix_permissions: all
+
+  builder:
+    file: agents/builder.md
+    enabled: true
+    connectors: all
+    apps: all
+    skills: all
+    tools: all
+    kortix_permissions:
+      - project.read
+      - project.write
+      - project.file.read
+      - project.file.write
+      - project.gitops.read
+      - project.gitops.push
+      - project.app.read
+      - project.app.write
+      - project.app.deploy
+      - project.app.admin
+      - project.connector.read
+      - project.connector.write
