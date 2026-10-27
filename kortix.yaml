@@ -1,48 +1,34 @@
-# yaml-language-server: $schema=https://kortix.com/schema/kortix.v2.schema.json
 kortix_version: 2
-
-default_agent: researcher
-
+default_agent: builder
 project:
   name: novyprojekt
-  description: >-
-    Research workspace. The researcher agent investigates live web sources and
-    lands cited briefs in memory/briefs/.
-
-# The Kortix tools every session gets. Only the listed ones load; delete a
-# line to drop that tool project-wide.
+  description: Research workspace. The researcher agent investigates live web
+    sources and lands cited briefs in memory/briefs/.
 tools:
   web_search: kortix:web_search
   image_search: kortix:image_search
   scrape_webpage: kortix:scrape_webpage
   memory: kortix:memory
   show: kortix:show
-
-# Governance only: what each agent may access. Behaviour (prompt, model,
-# permissions) lives in the agent's own .md.
 agents:
   researcher:
     file: agents/researcher.md
-    skills: all                # sees every project + managed skill
-    connectors: all            # may call any connector the project adds
-    secrets: none              # research needs no credentials; name them here when it does
+    skills: all
+    connectors: all
+    secrets: none
     apps: none
-    kortix_permissions:        # read the project, push its branch, open CRs — never merge
+    kortix_permissions:
       - project.read
       - project.write
       - project.gitops.read
-      - project.gitops.push      # covers pushing the branch and opening the CR
+      - project.gitops.push
       - project.review.read
-
-  # The built-in general-purpose agent, kept at full access so ordinary
-  # coding sessions are unaffected by this manifest.
   kortix:
     skills: all
     connectors: all
     secrets: all
     apps: all
     kortix_permissions: all
-
   builder:
     file: agents/builder.md
     enabled: true
