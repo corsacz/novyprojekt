@@ -1,5 +1,5 @@
 kortix_version: 2
-default_agent: builder
+default_agent: kortix
 project:
   name: novyprojekt
   description: Research workspace. The researcher agent investigates live web
